@@ -6,8 +6,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
-  title: 'Next.js + Supabase Starter Template',
-  description: 'Next.js + Supabase Starter Template',
+  title: 'QR Server',
+  description: 'A simple QR code generator built with Next.js and TypeScript.',
 }
 
 export const viewport: Viewport = {
