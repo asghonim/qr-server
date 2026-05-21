@@ -20,7 +20,6 @@ export function Nav() {
           <Link href="/#how" data-testid="marketing-nav-how-it-works-link">How it works</Link>
           <Link href="/#features" data-testid="marketing-nav-features-link">Features</Link>
           <Link href="/#pricing" data-testid="marketing-nav-pricing-link">Pricing</Link>
-          <Link href="/app" data-testid="marketing-nav-dashboard-link">Dashboard</Link>
           <Link href="/docs" data-testid="marketing-nav-docs-link">Docs</Link>
         </div>
         <div className="nav-actions">

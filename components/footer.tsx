@@ -22,9 +22,8 @@ export function Footer() {
         <div className="footer-col">
           <h4>Product</h4>
           <ul>
-            <li><a href="/#features">Features</a></li>
-            <li><a href="/#pricing">Pricing</a></li>
-            <li><Link href="/app">Dashboard</Link></li>
+            <li><Link href="/#features">Features</Link></li>
+            <li><Link href="/#pricing">Pricing</Link></li>
             <li><Link href="/changelog">Changelog</Link></li>
             <li><Link href="/status">Status</Link></li>
           </ul>
@@ -36,7 +35,7 @@ export function Footer() {
             <li><Link href="/docs#api">API reference</Link></li>
             <li><Link href="/docs#sdks">SDKs</Link></li>
             <li><Link href="/docs#webhooks">Webhooks guide</Link></li>
-            <li><a href="https://github.com" target="_blank" rel="noopener">GitHub ↗</a></li>
+            <li><Link href="https://github.com/asghonim/qr-server" target="_blank" rel="noopener">GitHub ↗</Link></li>
           </ul>
         </div>
         <div className="footer-col">

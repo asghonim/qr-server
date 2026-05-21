@@ -103,7 +103,7 @@ export const pricingTiers = [
   },
   {
     name: 'Team',
-    price: '$29',
+    price: '$9',
     suffix: ' / month',
     description: 'For products in production with real volume.',
     features: ['500,000 validations included', 'Unlimited App IDs', 'All signing algorithms', '90-day audit logs', 'Webhooks & revoke list', 'Email support, 1-day SLA'],

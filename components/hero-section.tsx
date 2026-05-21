@@ -10,7 +10,7 @@ export function HeroSection() {
     <header className="hero">
       <div className="hero-grid">
         <div>
-          <div className="eyebrow"><span className="dot" /> v2.4 — Ed25519 signing now available</div>
+          <div className="eyebrow"><span className="dot" /> v0.1 alpha — Ed25519 signing now available</div>
           <h1>
             <span className="signed">Signed</span> QR codes,<br />
             as an <em>API.</em>
