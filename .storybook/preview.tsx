@@ -21,13 +21,9 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <html>
-        <body>
-          <ThemeProvider>
-            <Story />
-          </ThemeProvider>
-        </body>
-      </html>
+      <ThemeProvider>
+        <Story />
+      </ThemeProvider>
     ),
   ],
 }
