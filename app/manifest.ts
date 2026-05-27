@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'QR Server',
     short_name: 'QR Server',
-    description: 'A self-hosted QR code management server built with Next.js and Supabase.',
+    description: 'QR code management server',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',
