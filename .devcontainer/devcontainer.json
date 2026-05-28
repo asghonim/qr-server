@@ -24,7 +24,8 @@
 				"alexkrechik.cucumberautocomplete",
 				"tamasfe.even-better-toml",
 				"GitHub.vscode-github-actions",
-				"YoavBls.pretty-ts-errors"
+				"YoavBls.pretty-ts-errors",
+				"github.vscode-github-actions"
 			]
 		}
 	}
