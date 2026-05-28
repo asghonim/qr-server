@@ -2,6 +2,10 @@ import { defineConfig, devices } from '@playwright/test'
 import { defineBddConfig } from 'playwright-bdd';
 import dotenv from 'dotenv';
 import path from 'path';
+import { register } from 'tsconfig-paths';
+
+// Register path aliases from tsconfig.json
+register();
 
 dotenv.config({ quiet: true, path: path.resolve(__dirname, '.env.test') });
 
