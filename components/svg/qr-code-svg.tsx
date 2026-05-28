@@ -22,6 +22,30 @@ function makePRNG(seed: number) {
   }
 }
 
+function Finder({ cx, cy, offset, moduleSize }: { cx: number; cy: number; offset: number; moduleSize: number }) {
+  const tx = offset + cx * moduleSize
+  const ty = offset + cy * moduleSize
+  return (
+    <g transform={`translate(${tx},${ty})`}>
+      <rect width={7 * moduleSize} height={7 * moduleSize} rx={moduleSize * 1.2} />
+      <rect x={moduleSize} y={moduleSize} width={5 * moduleSize} height={5 * moduleSize} rx={moduleSize * 0.8} fill="white" />
+      <rect x={2 * moduleSize} y={2 * moduleSize} width={3 * moduleSize} height={3 * moduleSize} rx={moduleSize * 0.4} />
+    </g>
+  )
+}
+
+function Align({ cx, cy, offset, moduleSize }: { cx: number; cy: number; offset: number; moduleSize: number }) {
+  const tx = offset + cx * moduleSize
+  const ty = offset + cy * moduleSize
+  return (
+    <g transform={`translate(${tx},${ty})`}>
+      <rect width={5 * moduleSize} height={5 * moduleSize} rx={moduleSize * 0.6} />
+      <rect x={moduleSize} y={moduleSize} width={3 * moduleSize} height={3 * moduleSize} rx={moduleSize * 0.4} fill="white" />
+      <rect x={2 * moduleSize} y={2 * moduleSize} width={moduleSize} height={moduleSize} />
+    </g>
+  )
+}
+
 export function QRCodeSVG({
   payload,
   size,
@@ -66,38 +90,14 @@ export function QRCodeSVG({
     }
   }
 
-  function Finder({ cx, cy }: { cx: number; cy: number }) {
-    const tx = offset + cx * moduleSize
-    const ty = offset + cy * moduleSize
-    return (
-      <g transform={`translate(${tx},${ty})`}>
-        <rect width={7 * moduleSize} height={7 * moduleSize} rx={moduleSize * 1.2} />
-        <rect x={moduleSize} y={moduleSize} width={5 * moduleSize} height={5 * moduleSize} rx={moduleSize * 0.8} fill="white" />
-        <rect x={2 * moduleSize} y={2 * moduleSize} width={3 * moduleSize} height={3 * moduleSize} rx={moduleSize * 0.4} />
-      </g>
-    )
-  }
-
-  function Align({ cx, cy }: { cx: number; cy: number }) {
-    const tx = offset + cx * moduleSize
-    const ty = offset + cy * moduleSize
-    return (
-      <g transform={`translate(${tx},${ty})`}>
-        <rect width={5 * moduleSize} height={5 * moduleSize} rx={moduleSize * 0.6} />
-        <rect x={moduleSize} y={moduleSize} width={3 * moduleSize} height={3 * moduleSize} rx={moduleSize * 0.4} fill="white" />
-        <rect x={2 * moduleSize} y={2 * moduleSize} width={moduleSize} height={moduleSize} />
-      </g>
-    )
-  }
-
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="#0c0a09">
       <rect width={size} height={size} fill="white" />
       {dataModules}
-      <Finder cx={0} cy={0} />
-      <Finder cx={grid - 7} cy={0} />
-      <Finder cx={0} cy={grid - 7} />
-      <Align cx={grid - 9} cy={grid - 9} />
+      <Finder cx={0} cy={0} offset={offset} moduleSize={moduleSize} />
+      <Finder cx={grid - 7} cy={0} offset={offset} moduleSize={moduleSize} />
+      <Finder cx={0} cy={grid - 7} offset={offset} moduleSize={moduleSize} />
+      <Align cx={grid - 9} cy={grid - 9} offset={offset} moduleSize={moduleSize} />
     </svg>
   )
 }
