@@ -145,3 +145,4 @@ vite.config.ts.timestamp-*
 !.env.test
 playwright-report
 test-results
+eslint-results.sarif

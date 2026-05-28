@@ -23,6 +23,11 @@ const eslintConfig = defineConfig([
     'test-results/**',
   ]),
   {
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
     files: ['app/**/*.{js,jsx,ts,tsx}', 'components/**/*.{js,jsx,ts,tsx}'],
     rules: {
       'no-restricted-imports': [
