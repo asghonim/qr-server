@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Footer } from '@/components/footer'
 import { Nav } from '@/components/nav'
 import '../landing.css'
+import { EMAIL } from '@/lib/constants'
 
 export const metadata: Metadata = { title: 'Security — qr-server' }
 
@@ -84,7 +85,7 @@ export default function SecurityPage() {
           <h2>Responsible disclosure</h2>
           <p>
             If you find a vulnerability, please email{' '}
-            <a href="mailto:security@qrserver.io" className="auth-link">security@qrserver.io</a>. We respond within
+            <a href={`mailto:${EMAIL.security}`} className="auth-link">{EMAIL.security}</a>. We respond within
             one business day. 
             {/* and pay bounties for valid reports through our{' '}
             <a href="#" className="auth-link">disclosure program</a>. */}

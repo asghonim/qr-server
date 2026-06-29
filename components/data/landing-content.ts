@@ -1,3 +1,5 @@
+import { URLS } from '@/lib/constants'
+
 export const heroCodeHTML = `<span class="tok-kw">const</span> { token, image_url } = <span class="tok-kw">await</span> qr
   .app(<span class="tok-str">"app_7gXk2pQ"</span>)
   .<span class="tok-fn">generate</span>({
@@ -25,7 +27,7 @@ export const step3CodeHTML = `<span class="tok-kw">GET</span> /api/&lt;appid&gt;
 
 <span class="tok-com">→ { valid: true, payload: {…} }</span>`
 
-export const postCodeHTML = `curl -X POST https://api.qrserver.io/app_7gXk2pQ/generate \\
+export const postCodeHTML = `curl -X POST ${URLS.api}/app_7gXk2pQ/generate \\
   -H <span class="tok-str">"Authorization: Bearer sk_live_a1b2c3..."</span> \\
   -H <span class="tok-str">"Content-Type: application/json"</span> \\
   -d <span class="tok-str">'{
@@ -35,11 +37,11 @@ export const postCodeHTML = `curl -X POST https://api.qrserver.io/app_7gXk2pQ/ge
 
 <span class="tok-com">→ {
     "token": "eyJhbGciOi...4e8c1f2a",
-    "image_url": "https://cdn.qrserver.io/...png",
+    "image_url": "${URLS.cdn}/...png",
     "expires_at": 1747587600
   }</span>`
 
-export const getCodeHTML = `curl <span class="tok-str">"https://api.qrserver.io/app_7gXk2pQ/validate?token=eyJ...4e8c"</span>
+export const getCodeHTML = `curl <span class="tok-str">"${URLS.api}/app_7gXk2pQ/validate?token=eyJ...4e8c"</span>
 
 <span class="tok-com">→ {
     "valid": true,

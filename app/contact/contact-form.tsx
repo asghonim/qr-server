@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { EMAIL } from '@/lib/constants'
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -40,7 +41,7 @@ export default function ContactForm() {
           <polyline points="9 12 11 14 15 10" />
         </svg>
         <h3>Message sent.</h3>
-        <p>We typically reply within one business day. Check your inbox — we reply from hello@qrserver.io.</p>
+        <p>We typically reply within one business day. Check your inbox — we reply from {EMAIL.hello}.</p>
       </div>
     )
   }

@@ -3,6 +3,7 @@ import { Footer } from '@/components/footer'
 import { Nav } from '@/components/nav'
 import type { Metadata } from 'next'
 import '../landing.css'
+import { EMAIL, HOSTNAMES } from '@/lib/constants'
 
 export const metadata: Metadata = { title: 'Contact — qr-server' }
 
@@ -20,24 +21,24 @@ export default function ContactPage() {
         <div className="contact-grid">
           <dl className="contact-info">
             <dt>General</dt>
-            <dd><a href="mailto:hello@qrserver.io">hello@qrserver.io</a></dd>
+            <dd><a href={`mailto:${EMAIL.hello}`}>{EMAIL.hello}</a></dd>
 
             <dt>Support</dt>
             <dd>
-              <a href="mailto:support@qrserver.io">support@qrserver.io</a><br />
+              <a href={`mailto:${EMAIL.support}`}>{EMAIL.support}</a><br />
               <span style={{ fontSize: 12.5, color: 'var(--muted)' }}>For account or API issues</span>
             </dd>
 
             <dt>Security</dt>
             <dd>
-              <a href="mailto:security@qrserver.io">security@qrserver.io</a><br />
+              <a href={`mailto:${EMAIL.security}`}>{EMAIL.security}</a><br />
               {/* <span style={{ fontSize: 12.5, color: 'var(--muted)' }}>
                 PGP key: <code className="kbd" style={{ fontSize: 11 }}>0x9F2A 93E4 C7B1 D6F0</code>
               </span> */}
             </dd>
 
             <dt>Press &amp; partnerships</dt>
-            <dd><a href="mailto:press@qrserver.io">press@qrserver.io</a></dd>
+            <dd><a href={`mailto:${EMAIL.press}`}>{EMAIL.press}</a></dd>
 
             {/* <dt>Mailing address</dt>
             <dd>
@@ -47,7 +48,7 @@ export default function ContactPage() {
             </dd> */}
 
             <dt>Status &amp; incidents</dt>
-            <dd><a href="/status">status.qrserver.io</a></dd>
+            <dd><a href="/status">{HOSTNAMES.status}</a></dd>
           </dl>
 
           <div className="contact-form">
@@ -58,7 +59,7 @@ export default function ContactPage() {
             <ContactForm />
             <p style={{ fontSize: 12, color: 'var(--muted)', margin: 0, textAlign: 'center' }}>
               We typically reply within 1 business day. For urgent issues, email{' '}
-              <a href="mailto:support@qrserver.io" className="auth-link" style={{ fontWeight: 400 }}>support</a> directly.
+              <a href={`mailto:${EMAIL.support}`} className="auth-link" style={{ fontWeight: 400 }}>support</a> directly.
             </p>
           </div>
         </div>

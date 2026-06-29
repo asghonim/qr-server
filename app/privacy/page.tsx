@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Nav } from '@/components/nav'
 import { Footer } from '@/components/footer'
 import '../landing.css'
+import { EMAIL } from '@/lib/constants'
 
 export const metadata: Metadata = { title: 'Privacy Policy — qr-server' }
 
@@ -83,7 +84,7 @@ export default function PrivacyPage() {
             </li>
             <li>
               Request a copy of, correction of, or restriction on processing of your personal data by emailing{' '}
-              <a href="mailto:privacy@qrserver.io" className="auth-link">privacy@qrserver.io</a>.
+              <a href={`mailto:${EMAIL.privacy}`} className="auth-link">{EMAIL.privacy}</a>.
             </li>
           </ul>
           <p>
@@ -107,7 +108,7 @@ export default function PrivacyPage() {
           <h2>Contact</h2>
           <p>
             Privacy questions:{' '}
-            <a href="mailto:privacy@qrserver.io" className="auth-link">privacy@qrserver.io</a>. 
+            <a href={`mailto:${EMAIL.privacy}`} className="auth-link">{EMAIL.privacy}</a>. 
             {/* Our EU
             representative for GDPR purposes is listed on our{' '}
             <a href="#" className="auth-link">legal page</a>. */}

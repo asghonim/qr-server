@@ -2,6 +2,7 @@ import { Footer } from '@/components/footer'
 import { Nav } from '@/components/nav'
 import type { Metadata } from 'next'
 import '../landing.css'
+import { EMAIL } from '@/lib/constants'
 
 export const metadata: Metadata = { title: 'About — qr-server' }
 
@@ -54,7 +55,7 @@ export default function AboutPage() {
           </p> */}
           <hr />
           <h2>Want to work with us?</h2>
-          <p>We hire slowly and deliberately. If our values resonate and you&apos;ve built things you&apos;re proud of, we&apos;d love to hear from you — even if there&apos;s no posted role. Write to <a href="mailto:hello@qrserver.io">hello@qrserver.io</a>.</p>
+          <p>We hire slowly and deliberately. If our values resonate and you&apos;ve built things you&apos;re proud of, we&apos;d love to hear from you — even if there&apos;s no posted role. Write to <a href={`mailto:${EMAIL.hello}`}>{EMAIL.hello}</a>.</p>
         </div>
       </main>
       <Footer />
