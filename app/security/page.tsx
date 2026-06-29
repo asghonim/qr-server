@@ -2,112 +2,114 @@ import type { Metadata } from 'next'
 import { Footer } from '@/components/footer'
 import { Nav } from '@/components/nav'
 import '../landing.css'
-import { ComingSoon } from '@/components/coming-soon'
 
 export const metadata: Metadata = { title: 'Security — qr-server' }
-
-function ShieldIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-    </svg>
-  )
-}
-
-function LockIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-    </svg>
-  )
-}
-
-function EyeOffIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
-      <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
-      <line x1="1" y1="1" x2="23" y2="23" />
-    </svg>
-  )
-}
-
-const sections = [
-  {
-    icon: <ShieldIcon />,
-    title: 'Encryption',
-    items: [
-      'All data in transit encrypted with TLS 1.3. TLS 1.2 minimum enforced.',
-      'Data at rest encrypted with AES-256 on all storage volumes.',
-      'Ed25519 private keys stored in HSM-backed key stores — never written to disk in plaintext.',
-      'API keys are hashed with bcrypt before storage; we cannot recover a lost key.',
-    ],
-  },
-  {
-    icon: <LockIcon />,
-    title: 'Access control',
-    items: [
-      'Production access restricted to named engineers via short-lived certificates (no standing SSH keys).',
-      'All production access is logged and reviewed weekly.',
-      'Principle of least privilege enforced via IAM roles — services cannot access resources they don\'t own.',
-      'Two-person approval required for database schema changes and key rotation.',
-    ],
-  },
-  {
-    icon: <EyeOffIcon />,
-    title: 'Operational security',
-    items: [
-      'Automated dependency scanning on every commit (Dependabot + Trivy).',
-      'Static analysis and SAST in CI; builds fail on critical findings.',
-      'Penetration test performed annually by an independent third party. Summary available on request under NDA.',
-      'Incident response plan tested with tabletop exercises each quarter.',
-    ],
-  },
-]
 
 export default function SecurityPage() {
   return (
     <div className="landing-page">
       <Nav />
-      <main className="page" style={{
-        minHeight: 'calc(90dvh - 56px)',
-        display: 'flex',
-        flexDirection: 'column',
-      }}>
-        <ComingSoon title='security' description='Security is load-bearing infrastructure, not a checkbox. Here&apos;s how we approach it.' />
-        {/* <div className="page-header">
+      <main className="page" style={{ minHeight: 'calc(90dvh - 56px)', display: 'flex', flexDirection: 'column' }}>
+        <div className="page-header">
           <div className="eyebrow"><span className="dot" /> Security</div>
-          <h1>Built to be trusted.</h1>
-          <p className="lede">Security is load-bearing infrastructure, not a checkbox. Here&apos;s how we approach it.</p>
+          <h1>Security at qr-server.</h1>
+          <p className="lede">A signing service is only as good as the keys it protects. Here&apos;s how we protect yours.</p>
         </div>
 
-        <div className="badge-row">
-          {['SOC 2 Type II', 'ISO 27001', 'GDPR', 'HIPAA-ready'].map((b) => (
-            <div key={b} className="compliance-badge">{b}</div>
-          ))}
-        </div>
-
-        <div className="security-grid">
-          {sections.map((s) => (
-            <div key={s.title} className="security-card">
-              <div className="security-icon">{s.icon}</div>
-              <h3>{s.title}</h3>
-              <ul>
-                {s.items.map((item, i) => <li key={i}>{item}</li>)}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        <div className="prose" style={{ marginTop: 48 }}>
-          <h2>Responsible disclosure</h2>
-          <p>If you discover a security vulnerability, please email <a href="mailto:security@qrserver.io" className="auth-link">security@qrserver.io</a> with a description and reproduction steps. We will acknowledge within 24 hours and keep you updated throughout remediation. We ask for 90 days to patch before public disclosure.</p>
-          <p>We do not currently operate a bug bounty program, but we recognise researchers who report valid findings in our Hall of Fame (with their permission).</p>
-
-          <h2>Compliance reports</h2>
-          <p>Our SOC 2 Type II report and ISO 27001 certificate are available to Enterprise customers and qualified prospects under NDA. Contact <a href="mailto:security@qrserver.io" className="auth-link">security@qrserver.io</a> to request a copy.</p>
+        {/* <div style={{ maxWidth: 1080, margin: '0 auto 40px', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
+          <div className="step">
+            <div className="num"><span className="pill">SOC 2</span> Type II</div>
+            <h3>Audited annually</h3>
+            <p>Latest report available under NDA. Request via{' '}
+              <a href="mailto:security@qrserver.io" className="auth-link" style={{ fontWeight: 400 }}>security@qrserver.io</a>.
+            </p>
+          </div>
+          <div className="step">
+            <div className="num"><span className="pill">ISO</span> 27001</div>
+            <h3>Certified</h3>
+            <p>Information security management system, certified by a recognized accreditor.</p>
+          </div>
+          <div className="step">
+            <div className="num"><span className="pill">GDPR</span> compliant</div>
+            <h3>EU data residency</h3>
+            <p>EU customer data stays in eu-central-1. DPA available on request.</p>
+          </div>
         </div> */}
+
+        <div className="prose">
+          <h2>Encryption</h2>
+          <p>
+            All traffic to qr-server is over TLS 1.3. We rate A+ on SSL Labs and reject anything older than TLS 1.2.
+            At rest, customer data and audit logs are encrypted with AES-256-GCM via our cloud provider&apos;s managed
+            KMS. Backups inherit the same encryption.
+          </p>
+          <p>
+            Signing keys are a separate story. Free and Team plans store signing keys in an envelope-encrypted column,
+            with the key-encrypting-key in a hardware-backed KMS. Enterprise plans get dedicated HSM-backed key
+            custody — keys never leave the HSM, and signing happens inside the appliance.
+          </p>
+
+          <h2>Access control</h2>
+          <p>
+            Inside qr-server, fewer than 10 engineers can reach production data, and only via a bastion that requires
+            hardware-key MFA and creates a session-level audit log. Read access to any specific customer&apos;s data
+            is logged and reviewed.
+          </p>
+          <p>
+            For your team, qr-server supports email + password with TOTP, Google, GitHub, and SAML SSO (Enterprise).
+            We honor SCIM for automated provisioning.
+          </p>
+
+          <h2>Operational practices</h2>
+          <ul>
+            <li>
+              <strong>Penetration testing.</strong> Annual third-party pen tests of the API and dashboard. Critical
+              findings remediated within 30 days.
+            </li>
+            <li>
+              <strong>Vulnerability scanning.</strong> Continuous SAST and dependency scanning in CI; weekly DAST
+              against staging and prod.
+            </li>
+            <li>
+              <strong>Backups.</strong> Postgres point-in-time recovery to 7 days. Audit logs are streamed to
+              immutable storage with 1-year retention.
+            </li>
+            <li>
+              <strong>Incident response.</strong> 24/7 on-call rotation. We publish post-mortems for any incident
+              that affected customer requests; see{' '}
+              <a href="/blog" className="auth-link">our blog</a>.
+            </li>
+          </ul>
+
+          <h2>Responsible disclosure</h2>
+          <p>
+            If you find a vulnerability, please email{' '}
+            <a href="mailto:security@qrserver.io" className="auth-link">security@qrserver.io</a>. We respond within
+            one business day. 
+            {/* and pay bounties for valid reports through our{' '}
+            <a href="#" className="auth-link">disclosure program</a>. */}
+          </p>
+          <p>
+            Out of scope: rate-limiting bypasses on the marketing site, missing security headers on docs pages,
+            anything requiring a stolen signing key.
+          </p>
+
+          <h2>Subprocessors</h2>
+          <p>We use a small, deliberately boring list of providers:</p>
+          <ul>
+            <li><strong>AWS</strong> — primary infrastructure (eu-central-1, us-east-1, ap-southeast-1).</li>
+            <li><strong>Cloudflare</strong> — DNS, DDoS protection, image CDN.</li>
+            <li><strong>Stripe</strong> — billing.</li>
+            {/* <li><strong>Vanta</strong> — compliance automation.</li> */}
+            <li><strong>Postmark</strong> — transactional email (password resets, webhook alerts).</li>
+          </ul>
+          <p>
+            {/* The full list with versions and DPAs is at{' '}
+            <a href="/subprocessors" className="auth-link">/subprocessors</a>.  */}
+            Material changes are announced 30 days
+            before they take effect.
+          </p>
+        </div>
       </main>
       <Footer />
     </div>

@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Nav } from '@/components/nav'
 import { Footer } from '@/components/footer'
 import '../landing.css'
-import { ComingSoon } from '@/components/coming-soon'
 
 export const metadata: Metadata = { title: 'Privacy Policy — qr-server' }
 
@@ -10,54 +9,110 @@ export default function PrivacyPage() {
   return (
     <div className="landing-page">
       <Nav />
-      <main className="page" style={{
-        minHeight: 'calc(90dvh - 56px)',
-        display: 'flex',
-        flexDirection: 'column',
-      }}>
-        <ComingSoon title='privacy policy' description='Last updated May 1, 2026. We process as little data as possible to run the service.' />
-        {/* <div className="page-header">
-          <div className="eyebrow"><span className="dot" /> Legal</div>
-          <h1>Privacy Policy.</h1>
-          <p className="lede">Last updated May 1, 2026. We process as little data as possible to run the service.</p>
+      <main className="page" style={{ minHeight: 'calc(90dvh - 56px)', display: 'flex', flexDirection: 'column' }}>
+        <div className="page-header">
+          <div className="eyebrow"><span className="dot" /> Privacy Policy</div>
+          <h1>Privacy policy.</h1>
+          <p className="lede">
+            Last updated: April 22, 2026 · This document explains what data we collect, how we use it, and the
+            choices you have. 
+            {/* Plain language version; legal version available{' '}
+            <a href="#" className="auth-link">here</a>. */}
+          </p>
         </div>
 
         <div className="prose">
-          <h2>1. What we collect</h2>
-          <p>When you sign up, we collect your email address and a bcrypt-hashed password (or an OAuth token if you sign in via GitHub/Google). When you use the API, we log the App ID, timestamp, source IP, response status, and a hash of the token payload — never the raw payload or any user-identifying fields inside the QR code.</p>
-          <p>We collect standard server logs (IP address, user-agent, request path, response code) for up to 30 days for operational purposes and then delete them.</p>
+          <h2>The short version</h2>
+          <p>
+            We collect the minimum amount of data needed to run a signing service. We don&apos;t sell it. We
+            don&apos;t share it with advertisers. We don&apos;t have advertisers. You can export or delete your
+            workspace at any time, and your audit log payloads are encrypted at rest.
+          </p>
 
-          <h2>2. How we use it</h2>
-          <p>We use your email to send transactional messages (account creation, password reset, billing receipts, incident notifications). We do not send marketing email unless you explicitly opt in. We use request logs to detect abuse, generate aggregate metrics, and debug issues. We do not sell, rent, or share your data with third parties for advertising.</p>
+          <h2>What we collect</h2>
+          <h3>Account data</h3>
+          <p>
+            Your email, name, workspace name, password hash (argon2id), and any team members you invite. If you
+            sign in with Google or GitHub, the provider&apos;s ID and email.
+          </p>
+          <h3>Billing data</h3>
+          <p>
+            Plan, address, and the last four digits of your card. Full card data is held by Stripe and we never
+            see it.
+          </p>
+          <h3>Usage data</h3>
+          <p>
+            For every API request: timestamp, App ID, endpoint, status code, latency, and source IP. For 90 days
+            (Free) or 1 year (Enterprise). Used to populate your dashboard and detect abuse.
+          </p>
+          <h3>Token payloads</h3>
+          <p>
+            Whatever you put inside a signed QR. We treat this as your customer data — encrypted at rest, deleted
+            on workspace deletion, never used for anything other than serving validation requests.
+          </p>
 
-          <h2>3. Sub-processors</h2>
-          <p>We use a small number of sub-processors to run the service:</p>
+          <h2>What we don&apos;t collect</h2>
           <ul>
-            <li><strong>Hetzner / OVH</strong> — infrastructure hosting in EU data centers</li>
-            <li><strong>Postmark</strong> — transactional email delivery</li>
-            <li><strong>Stripe</strong> — payment processing (we never see your card number)</li>
-            <li><strong>Cloudflare</strong> — DDoS mitigation and DNS</li>
+            <li>Behavioral tracking on this marketing site beyond aggregate visit counts. No third-party analytics.</li>
+            <li>Fingerprinting or session replay anywhere in the product.</li>
+            <li>Anything from your codebase, environment variables, or local machine.</li>
           </ul>
-          <p>All sub-processors are contractually bound to process your data only on our behalf and under equivalent data protection obligations.</p>
 
-          <h2>4. Data location</h2>
-          <p>All customer data is stored in the European Union (Frankfurt primary, Lisbon failover). If you are on an Enterprise plan, we can discuss data residency requirements separately.</p>
+          <h2>How we use it</h2>
+          <p>
+            To serve API requests, populate your dashboard, send you account-related emails, bill you, detect
+            abuse, and improve the product through aggregated metrics. We will email you about service changes;
+            we won&apos;t email you to sell you things.
+          </p>
 
-          <h2>5. Retention</h2>
-          <p>Account data is retained for the life of the account plus 30 days after deletion (to allow for accidental deletion recovery). API audit logs are retained for 90 days on Free, 12 months on Pro, and as configured on Enterprise. Billing records are retained for 7 years as required by law.</p>
+          <h2>How we share it</h2>
+          <p>
+            We share data with the subprocessors listed on our{' '}
+            <a href="/security" className="auth-link">security page</a>, all of whom are bound by DPAs at least
+            as strict as this policy. We share data with law enforcement only with a valid legal request, and we
+            publish a transparency report.
+          </p>
 
-          <h2>6. Your rights</h2>
-          <p>Under GDPR and similar regulations you have the right to access, correct, export, or delete your personal data. To exercise any of these rights, email <a href="mailto:privacy@qrserver.io" className="auth-link">privacy@qrserver.io</a> from your account email address. We will respond within 30 days.</p>
+          <h2>Your rights</h2>
+          <p>Wherever you live, you can:</p>
+          <ul>
+            <li>Export all your data as JSON from the dashboard.</li>
+            <li>
+              Delete your workspace, which deletes all token payloads, audit logs, and personal data within
+              30 days.
+            </li>
+            <li>
+              Request a copy of, correction of, or restriction on processing of your personal data by emailing{' '}
+              <a href="mailto:privacy@qrserver.io" className="auth-link">privacy@qrserver.io</a>.
+            </li>
+          </ul>
+          <p>
+            EU and UK residents have additional rights under GDPR. California residents have rights under CCPA.
+            We honor both regardless of where you live.
+          </p>
 
-          <h2>7. Cookies</h2>
-          <p>We use a single first-party session cookie to keep you logged in. We do not use tracking cookies, analytics pixels, or third-party advertising scripts on any page of the application or marketing site.</p>
+          <h2>Data residency</h2>
+          <p>
+            EU and UK workspace data is stored in eu-central-1. US workspaces are stored in us-east-1. APAC
+            workspaces in ap-southeast-1. Data is replicated within the region for durability; never
+            cross-region.
+          </p>
 
-          <h2>8. Changes to this policy</h2>
-          <p>Material changes will be emailed to all registered users at least 14 days before they take effect. The changelog for this document is available on request.</p>
+          <h2>Cookies</h2>
+          <p>
+            We use one cookie to keep you signed in. That&apos;s it. No advertising cookies, no third-party
+            trackers, no preference modal you have to dismiss.
+          </p>
 
-          <h2>9. Contact</h2>
-          <p>Data controller: qr-server GmbH, Berlin, Germany. For privacy enquiries: <a href="mailto:privacy@qrserver.io" className="auth-link">privacy@qrserver.io</a>.</p>
-        </div> */}
+          <h2>Contact</h2>
+          <p>
+            Privacy questions:{' '}
+            <a href="mailto:privacy@qrserver.io" className="auth-link">privacy@qrserver.io</a>. 
+            {/* Our EU
+            representative for GDPR purposes is listed on our{' '}
+            <a href="#" className="auth-link">legal page</a>. */}
+          </p>
+        </div>
       </main>
       <Footer />
     </div>
