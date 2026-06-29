@@ -10,7 +10,7 @@ export default function PrivacyPage() {
   return (
     <div className="landing-page">
       <Nav />
-      <main className="page" style={{ minHeight: 'calc(90dvh - 56px)', display: 'flex', flexDirection: 'column' }}>
+      <main className="page">
         <div className="page-header">
           <div className="eyebrow"><span className="dot" /> Privacy Policy</div>
           <h1>Privacy policy.</h1>

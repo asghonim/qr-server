@@ -11,7 +11,7 @@ export default function ContactPage() {
   return (
     <div className="landing-page">
       <Nav />
-      <main className="page" style={{ minHeight: 'calc(90dvh - 56px)', display: 'flex', flexDirection: 'column' }}>
+      <main className="page">
         <div className="page-header">
           <div className="eyebrow"><span className="dot" /> Contact</div>
           <h1>Talk to us.</h1>

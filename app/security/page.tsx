@@ -10,7 +10,7 @@ export default function SecurityPage() {
   return (
     <div className="landing-page">
       <Nav />
-      <main className="page" style={{ minHeight: 'calc(90dvh - 56px)', display: 'flex', flexDirection: 'column' }}>
+      <main className="page">
         <div className="page-header">
           <div className="eyebrow"><span className="dot" /> Security</div>
           <h1>Security at qr-server.</h1>

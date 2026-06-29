@@ -1276,4 +1276,5 @@
   .landing-page .nf-inner { grid-template-columns: 1fr; gap: 40px; }
   .landing-page .nf h1 { font-size: 40px; }
   .landing-page .nf-help-grid { grid-template-columns: repeat(2, 1fr); }
+  .landing-page .contact-grid { grid-template-columns: 1fr; gap: 32px; }
 }

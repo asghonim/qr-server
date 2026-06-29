@@ -6,18 +6,18 @@ import { EMAIL } from '@/lib/constants'
 
 export const metadata: Metadata = { title: 'About — qr-server' }
 
-const team = [
-  { initials: 'MR', name: 'Maya Rodriguez', role: 'Co-founder, CEO', bg: 'linear-gradient(135deg, oklch(0.65 0.09 30), oklch(0.5 0.1 350))' },
-  { initials: 'JD', name: 'Jamie Diop', role: 'Co-founder, CTO', bg: 'linear-gradient(135deg, oklch(0.65 0.1 200), oklch(0.55 0.13 240))' },
-  { initials: 'SL', name: 'Saoirse Lima', role: 'Platform engineering', bg: 'linear-gradient(135deg, oklch(0.7 0.1 155), oklch(0.55 0.12 200))' },
-  { initials: 'HT', name: 'Hassan Talib', role: 'Customer engineering', bg: 'linear-gradient(135deg, oklch(0.75 0.1 60), oklch(0.6 0.13 30))' },
-]
+// const team = [
+//   { initials: 'MR', name: 'Maya Rodriguez', role: 'Co-founder, CEO', bg: 'linear-gradient(135deg, oklch(0.65 0.09 30), oklch(0.5 0.1 350))' },
+//   { initials: 'JD', name: 'Jamie Diop', role: 'Co-founder, CTO', bg: 'linear-gradient(135deg, oklch(0.65 0.1 200), oklch(0.55 0.13 240))' },
+//   { initials: 'SL', name: 'Saoirse Lima', role: 'Platform engineering', bg: 'linear-gradient(135deg, oklch(0.7 0.1 155), oklch(0.55 0.12 200))' },
+//   { initials: 'HT', name: 'Hassan Talib', role: 'Customer engineering', bg: 'linear-gradient(135deg, oklch(0.75 0.1 60), oklch(0.6 0.13 30))' },
+// ]
 
 export default function AboutPage() {
   return (
     <div className="landing-page">
       <Nav />
-      <main className="page" style={{ minHeight: 'calc(90dvh - 56px)', display: 'flex', flexDirection: 'column' }}>
+      <main className="page">
         <div className="page-header">
           <div className="eyebrow"><span className="dot" /> About</div>
           <h1>A focused tool, run by a small team.</h1>
