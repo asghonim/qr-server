@@ -1,4 +1,4 @@
-export const DOMAIN = "qrserver.io";
+export const DOMAIN = "COMING.SOON";
 
 export const URLS = {
   api: `https://api.${DOMAIN}`,
