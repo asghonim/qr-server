@@ -1,12 +1,14 @@
 'use client'
 
 import { useState } from 'react'
+import { EMAIL } from '@/lib/constants'
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
 export default function ContactForm() {
   const [state, setState] = useState<FormState>('idle')
   const [errors, setErrors] = useState<Record<string, string>>({})
+  const comingSoon = true;
 
   function validate(data: FormData) {
     const errs: Record<string, string> = {}
@@ -40,7 +42,7 @@ export default function ContactForm() {
           <polyline points="9 12 11 14 15 10" />
         </svg>
         <h3>Message sent.</h3>
-        <p>We typically reply within one business day. Check your inbox — we reply from hello@qrserver.io.</p>
+        <p>We typically reply within one business day. Check your inbox — we reply from {EMAIL.hello}.</p>
       </div>
     )
   }
@@ -72,8 +74,8 @@ export default function ContactForm() {
         <textarea data-testid="contact-message-textarea" id="message" name="message" className={`textarea${errors.message ? ' input-err' : ''}`} rows={5} placeholder="Tell us what's on your mind." />
         {errors.message && <span className="field-err">{errors.message}</span>}
       </div>
-      <button data-testid="contact-submit-btn" type="submit" className="btn primary" disabled={state === 'submitting'} style={{ width: '100%', justifyContent: 'center' }}>
-        {state === 'submitting' ? <span className="spinner" /> : 'Send message'}
+      <button data-testid="contact-submit-btn" type="submit" className="btn primary" disabled={comingSoon || state === 'submitting'} style={{ width: '100%', justifyContent: 'center' }}>
+        {comingSoon ? 'Coming soon' : state === 'submitting' ? <span className="spinner" /> : 'Send message'}
       </button>
     </form>
   )

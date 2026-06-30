@@ -1,3 +1,5 @@
+import { URLS } from '@/lib/constants'
+
 export const heroCodeHTML = `<span class="tok-kw">const</span> { token, image_url } = <span class="tok-kw">await</span> qr
   .app(<span class="tok-str">"app_7gXk2pQ"</span>)
   .<span class="tok-fn">generate</span>({
@@ -25,7 +27,7 @@ export const step3CodeHTML = `<span class="tok-kw">GET</span> /api/&lt;appid&gt;
 
 <span class="tok-com">→ { valid: true, payload: {…} }</span>`
 
-export const postCodeHTML = `curl -X POST https://api.qrserver.io/app_7gXk2pQ/generate \\
+export const postCodeHTML = `curl -X POST ${URLS.api}/app_7gXk2pQ/generate \\
   -H <span class="tok-str">"Authorization: Bearer sk_live_a1b2c3..."</span> \\
   -H <span class="tok-str">"Content-Type: application/json"</span> \\
   -d <span class="tok-str">'{
@@ -35,11 +37,11 @@ export const postCodeHTML = `curl -X POST https://api.qrserver.io/app_7gXk2pQ/ge
 
 <span class="tok-com">→ {
     "token": "eyJhbGciOi...4e8c1f2a",
-    "image_url": "https://cdn.qrserver.io/...png",
+    "image_url": "${URLS.cdn}/...png",
     "expires_at": 1747587600
   }</span>`
 
-export const getCodeHTML = `curl <span class="tok-str">"https://api.qrserver.io/app_7gXk2pQ/validate?token=eyJ...4e8c"</span>
+export const getCodeHTML = `curl <span class="tok-str">"${URLS.api}/app_7gXk2pQ/validate?token=eyJ...4e8c"</span>
 
 <span class="tok-com">→ {
     "valid": true,
@@ -95,7 +97,7 @@ export const pricingTiers = [
     price: '$0',
     suffix: ' / month',
     description: 'For prototyping and side projects.',
-    features: ['10,000 validations / month', '3 App IDs', 'HS256 signing', '30-day audit logs', 'Community support'],
+    features: ['1,000 validations / month', '1 App ID', 'HS256 signing', '30-day audit logs', 'Community support'],
     href: '/app',
     ctaLabel: 'Start free',
     featured: false,
@@ -103,9 +105,20 @@ export const pricingTiers = [
   },
   {
     name: 'Team',
-    price: '$9',
+    price: '$3',
     suffix: ' / month',
     description: 'For products in production with real volume.',
+    features: ['10,000 validations included', '3 App IDs', 'All signing algorithms', '90-day audit logs', 'Webhooks & revoke list'],
+    href: '/app',
+    ctaLabel: 'Start 14-day trial',
+    featured: true,
+    badge: 'Most popular',
+  },
+  {
+    name: 'Team+',
+    price: '$9',
+    suffix: ' / month',
+    description: 'For products in production with extra real volume.',
     features: ['500,000 validations included', 'Unlimited App IDs', 'All signing algorithms', '90-day audit logs', 'Webhooks & revoke list', 'Email support, 1-day SLA'],
     href: '/app',
     ctaLabel: 'Start 14-day trial',
@@ -118,7 +131,7 @@ export const pricingTiers = [
     suffix: '',
     description: 'For regulated workloads and large fleets.',
     features: ['Unlimited validations', 'Dedicated signing region', 'HSM-backed keys', '1-year audit retention', 'SAML SSO & SCIM', '99.99% SLA, named contact'],
-    href: '#',
+    href: '/contact',
     ctaLabel: 'Contact sales',
     featured: false,
     badge: null,

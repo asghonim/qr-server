@@ -17,7 +17,7 @@ export function Footer() {
             <BrandMark />
             <span>qr-server</span>
           </Link>
-          <p>Signed QR codes, as an API. Built by a small team in Berlin and Lisbon.</p>
+          <p>Signed QR codes, as an API. Built by a small team in Cairo and Dubai.</p>
         </div>
         <div className="footer-col">
           <h4>Product</h4>
