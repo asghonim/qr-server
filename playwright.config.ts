@@ -1,13 +1,12 @@
 import { defineConfig, devices } from '@playwright/test'
 import { defineBddConfig } from 'playwright-bdd';
-import dotenv from 'dotenv';
-import path from 'path';
 import { register } from 'tsconfig-paths';
 
+process.env.NEXT_PUBLIC_APP_URL=`http://localhost:3000`
+process.env.NEXT_PUBLIC_SUPABASE_URL=`http://127.0.0.1:54321`
 // Register path aliases from tsconfig.json
 register();
 
-dotenv.config({ quiet: true, path: path.resolve(__dirname, '.env.test') });
 
 const testDir = defineBddConfig({
   features: 'features/*.feature',

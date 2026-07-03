@@ -33,6 +33,3 @@ select dbdev.install('supabase-dbdev');
 -- Drop and recreate the extension to ensure a clean installation
 drop extension if exists "supabase-dbdev";
 create extension if not exists "supabase-dbdev";
-
-select dbdev.install('basejump-supabase_test_helpers');
-CREATE EXTENSION "basejump-supabase_test_helpers";%
