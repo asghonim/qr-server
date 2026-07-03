@@ -3,12 +3,21 @@
 {
 	"name": "Node.js & TypeScript",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+	"image": "mcr.microsoft.com/devcontainers/base:latest",
 	"features": {
+		"ghcr.io/devcontainers-extra/features/typescript": {},
 		"ghcr.io/devcontainers-extra/features/vercel-cli": {},
 		"ghcr.io/devcontainers/features/github-cli": {},
 		"ghcr.io/schlich/devcontainer-features/playwright": {},
-		"ghcr.io/postfinance/devcontainer-features/playwright-deps": {}
+		"ghcr.io/postfinance/devcontainer-features/playwright-deps": {},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "version": "latest",
+      "moby": "false",
+      "enableNonRootDocker": true
+    },
+		"ghcr.io/guiyomh/features/just": {
+      "version": "latest"
+    }
 	},
 	"postCreateCommand": "sh ./.devcontainer/init.sh",
 	"customizations": {

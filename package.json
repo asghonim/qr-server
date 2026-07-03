@@ -23,7 +23,6 @@
     "supabase:typegen": "supabase gen types typescript > types/database.ts"
   },
   "dependencies": {
-    "@asghonim/supabase-js": "^0.1.0-alpha.1",
     "@auth0/nextjs-auth0": "^4.20.0",
     "@base-ui/react": "^1.5.0",
     "@lexical/react": "^0.43.0",
