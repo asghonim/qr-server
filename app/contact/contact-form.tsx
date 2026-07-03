@@ -36,10 +36,10 @@ export default function ContactForm() {
 
     const supabase = createClient()
     const { error } = await supabase.rpc('contact_submit', {
-      p_name: String(data.get('name')).trim(),
-      p_email: String(data.get('email')).trim(),
-      p_body: String(data.get('message')).trim(),
-      p_channel: String(data.get('topic') || 'default'),
+      p_name: (data.get('name') as string || '').trim(),
+      p_email: (data.get('email') as string || '').trim(),
+      p_body: (data.get('message') as string || '').trim(),
+      p_channel: (data.get('topic') as string || 'default').trim(),
     })
 
     if (error) {
